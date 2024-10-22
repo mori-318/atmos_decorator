@@ -25,7 +25,7 @@ class SimpleCNN(nn.Module):
 
         # ドロップアウト層
         self.dropout = nn.Dropout(0.5)
-        
+
     def forward(self, x):
         # 畳み込み -> ReLU -> プーリングの繰り返し
         x = self.pool(F.relu(self.conv1(x)))
