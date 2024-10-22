@@ -37,6 +37,3 @@ async def apply_filters(applied_filters: List[str] = Query(...), img_file: Uploa
 @app.get("/")
 def read_root():
     return {"Hello": "world"}
-
-if __name__ == "__main__":
-    test_apply_filters()
