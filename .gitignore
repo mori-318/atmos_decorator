@@ -2,3 +2,4 @@
 backend/venv
 backend/experiments
 __pycache__/
+*.pyc
