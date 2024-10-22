@@ -102,24 +102,3 @@ class ClassifyAtmos:
             classify_result = label_by_model
 
         return classify_result, is_face
-
-
-
-if __name__ == "__main__":
-    classify_atmos = ClassifyAtmos(
-        r"assets\model_weight\normal_model_weight",
-        r"assets\model_weight\smile_model_weight"
-    )
-
-    def classify_imgs(folder):
-        for img_name in os.listdir(folder):
-            result, _ = classify_atmos.run_classify(os.path.join(folder, img_name))
-            print(f"{img_name} 分類結果：{result}")
-
-    print("==== negative ===")
-    classify_imgs("negative_test")
-    print("finish\n")
-
-    print("==== positive ===")
-    classify_imgs("positive_test")
-    print("finish\n")
