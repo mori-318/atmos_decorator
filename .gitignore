@@ -1,6 +1,5 @@
 # backend
 backend/venv
 backend/experiments
-
-*.pyc
 __pycache__/
+*.pyc
