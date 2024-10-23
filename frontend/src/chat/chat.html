@@ -7,84 +7,93 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="chat.css">
 </head>
 
 <body>
-    <!-- ホーム画面 -->
-    <!-- <div>
-        <form action="">
-            <button>会話を始める</button>
-        </form>
-    </div> -->
+    <!-- ホームに戻る  新しい会話
+    <header class="header">
+        <div class="container">
+            <div class="d-flex justify-content-between">
+                <button>ホームに戻る</button>
+                <button>新しい会話</button>
+            </div>
+        </div>
+    </header> -->
 
-    <!-- ホームに戻る -->
+    <header class="header">
+        <div class="container-fluid"> <!-- 画面全体に広がるように container-fluid を使用 -->
+            <div class="d-flex justify-content-between"> <!-- justify-content-between で左右に配置 -->
+                <!-- <button class="p-2">ホームに戻る</button> -->
+                <a href="#home">アイコン</a>
+                <button class="p-2">新しい会話</button>
+            </div>
+        </div>
+    </header>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
+    <main>
+        <!-- チャット打ち込み -->
+        <!-- 画像読み込み -->
+
+
+        <!-- <div class="container border border-primary rounded-lg">
+            <form method="post" enctype="multipart/form-data">
+                <div id="dragDropArea" class="row justify-content-md-center">
+                    <div class="drag-drop-inside col-12 col-md-4">
+                        <p class="drag-drop-info">ここにファイルをドロップ</p>
+                        <p>または</p>
+                        <p class="drag-drop-buttons">
+                            <input id="fileInput" type="file" accept="image/*" value="ファイルを選択" name="photo"
+                                onChange="photoPreview(event)">
+                        </p>
+                        <div id="previewArea"></div>
                     </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </div>
+                <div class="row justify-content-md-center">
+                    <form action="#">
+                        <div class="form-group col-12 col-md-4 ">
+                            <label for="new-talk">新しい画像を入力してください</label>
+                            <input type="text" class="form-control" name="" id="new-talk" placeholder="新しい画像を入力してください"
+                                class="">
+                        </div>
+                    </form>
+                </div>
+
+            </form>
+        </div> -->
+        <div class="container  border border-primary rounded-lg">
+            <form method="post" enctype="multipart/form-data">
+                <div id="dragDropArea" class="row col-12 col-md-4">
+                    <div class="drag-drop-inside">
+                        <p class="drag-drop-info">ここにファイルをドロップ</p>
+                        <p>または</p>
+                        <p class="drag-drop-buttons">
+                            <input id="fileInput" type="file" accept="image/*" value="ファイルを選択" name="photo"
+                                onChange="photoPreview(event)">
+                        </p>
+                        <div id="previewArea"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <form action="#">
+                        <div class="form-group col-md-4 offset-md-4">
+                            <label for="new-talk">新しい画像を入力してください</label>
+                            <input type="text" class="form-control" name="" id="new-talk" placeholder="新しい画像を入力してください"
+                                class="">
+                        </div>
+                    </form>
+                </div>
+
             </form>
         </div>
-    </nav>
 
-    <div class="container">
-        <div class="d-flex justify-content-between">
-            <button>ホームに戻る</button>
-            <button>新しい会話</button>
+        <!-- バックエンドから受け取ったものを表示 -->
+        <div>
+
         </div>
-    </div>
 
-    <!-- 新しい会話 -->
-    <div>
 
-    </div>
-    <main></main>
-    <!-- チャット打ち込み -->
-
-    <div class="container-md">
-        <form action="">
-            <div class="form-group col md-6 fixed-bottom">
-                <label for="new-talk">新しい画像を入力してください</label>
-                <input type="text" class="form-control" name="" id="new-talk" placeholder="新しい画像を入力してください" class="">
-            </div>
-        </form>
-    </div>
-
-    <!-- バックエンドから受け取ったものを表示 -->
-    <div>
-
-    </div>
     </main>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
