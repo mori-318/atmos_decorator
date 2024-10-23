@@ -21,14 +21,14 @@ class AtmosDecorator:
         return result_img
 
 
-    def face_mosaic(self, img):
+    def face_mosaic(self, img, scale=0.05):
         faces = self.get_face_position()
 
         # 写真に写っている全顔に対してモザイク処理を行う
         for face in faces.values():
             x1, y1, x2, y2 = face["facial_area"]
             face_img = img[y1:y2, x1:x2]
-            result_face_img = self.mosaic_filter(face_img, scale=0.05)
+            result_face_img = self.mosaic_filter(face_img, scale)
             img[y1:y2, x1:x2] = result_face_img
 
         return img
@@ -59,6 +59,10 @@ class AtmosDecorator:
         return img
 
     def create_horror_noise(self, img):
+        # 顔がある場合はモザイク処理をかける
+        faces = self.get_face_position()
+        if faces:
+            img = self.eye_mosaic(img)
         processed_img = img.copy()
         img_height, img_width, _ = img.shape
 
@@ -78,7 +82,7 @@ class AtmosDecorator:
         hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV_FULL)
         hsvf = hsv_img.astype(np.float32)
         hsvf[:,:,0] = np.clip(hsvf[:,:,0] - 30, 0, 180)  # 色相を赤方向にシフト
-        hsvf[:,:,1] = np.clip(hsvf[:,:,1] * 0.7 - 30, 0, 255)
+        hsvf[:,:,1] = np.clip(hsvf[:,:,1] * 0.5 - 30, 0, 255)
         hsv8 = hsvf.astype(np.uint8)
         processed_img = cv2.cvtColor(hsv8, cv2.COLOR_HSV2BGR_FULL)
         processed_img = self.create_horror_noise(processed_img)

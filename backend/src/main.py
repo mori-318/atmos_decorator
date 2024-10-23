@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from typing import List
 
 from libs.classify_img_atmos.classify_atmos import ClassifyAtmos
-from backend.src.libs.apply_filters.atmos_decorator import AtmosDecorator
+from libs.decorate_img.atmos_decorator import AtmosDecorator
 from libs.utils.utils import Utils
 
 app = FastAPI()
