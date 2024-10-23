@@ -1,7 +1,9 @@
 import cv2
+import numpy as np
+import random
 from retinaface import RetinaFace
 
-class AtmosChanger:
+class AtmosDecorator:
     def __init__(self, img, applied_filters):
         self.img = img
         self.applied_filters = applied_filters
@@ -56,6 +58,33 @@ class AtmosChanger:
 
         return img
 
+    def create_horror_noise(self, img):
+        processed_img = img.copy()
+        img_height, img_width, _ = img.shape
+
+        for count in range(100):
+            nois_size = random.randint(1, int(img_width/20))
+            noise_x1 = random.randint(0, img_width-nois_size)
+            noise_y1= random.randint(0, img_height-nois_size)
+            noise_x2 = noise_x1 + random.randint(0, nois_size)
+            noise_y2 = noise_y1 + random.randint(0, nois_size)
+            color = (0,0,0)
+            cv2.rectangle(processed_img, (noise_x1, noise_y1), (noise_x2, noise_y2), color, thickness=-1)
+
+        return processed_img
+
+
+    def horror_filter(self, img):
+        hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV_FULL)
+        hsvf = hsv_img.astype(np.float32)
+        hsvf[:,:,0] = np.clip(hsvf[:,:,0] - 30, 0, 180)  # 色相を赤方向にシフト
+        hsvf[:,:,1] = np.clip(hsvf[:,:,1] * 0.7 - 30, 0, 255)
+        hsv8 = hsvf.astype(np.uint8)
+        processed_img = cv2.cvtColor(hsv8, cv2.COLOR_HSV2BGR_FULL)
+        processed_img = self.create_horror_noise(processed_img)
+        return processed_img
+
+
 
     def run_atmos_change(self):
         processed_img = self.img.copy()
@@ -67,4 +96,18 @@ class AtmosChanger:
             elif applied_filters == "face_mosaic":
                 processed_img = self.face_mosaic(processed_img)
 
+            elif applied_filters == "horror_filter":
+                processed_img = self.horror_filter(processed_img)
+
         return processed_img
+
+if __name__ == "__main__":
+    img = cv2.imread(r"test_imgs\3.jpg")
+    applied_filters = ["horror_filter"]
+    atmos_decorator = AtmosDecorator(img, applied_filters)
+
+    processed_img = atmos_decorator.run_atmos_change()
+
+    cv2.imshow('img', processed_img)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()

@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from typing import List
 
 from libs.classify_img_atmos.classify_atmos import ClassifyAtmos
-from libs.apply_filters.atmos_changer import AtmosChanger
+from backend.src.libs.apply_filters.atmos_decorator import AtmosDecorator
 from libs.utils.utils import Utils
 
 app = FastAPI()
@@ -24,7 +24,7 @@ async def classify_atmos(img_file: UploadFile = File(...)):
 @app.post("/apply_filters")
 async def apply_filters(applied_filters: List[str] = Query(...), img_file: UploadFile = File(...)):
     img = await utils.file_to_img(img_file)
-    atmos_changer = AtmosChanger(img, applied_filters)
+    atmos_changer = AtmosDecorator(img, applied_filters)
     processed_img = atmos_changer.run_atmos_change()
     processed_img_file = utils.img_to_file(processed_img)
     return {"status": "processed", "imgFile": processed_img_file}
