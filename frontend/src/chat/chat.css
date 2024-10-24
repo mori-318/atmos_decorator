@@ -27,13 +27,14 @@ header {
     /* containerと同じ幅に設定 */
     max-width: 960px;
     /* Bootstrapのcontainerと同じ最大幅に設定 */
-    height: 520px;
+    height: 540px;
     max-height: 1000px;
 }
 
 
 body {
     background-color: #fb0606;
+    font-size: 16px;
 }
 
 
@@ -44,5 +45,25 @@ body {
 
 #chatText {
     margin: 1em;
+    padding: 1em;
+}
+
+.footer .container-fluid {
+    padding: 1em;
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+}
+.backendChat{
+    border: solid #cbbfbf;
+    border-radius: 20px;
+    margin: 0.5em;
+    padding: 1em;
+}
+
+.userChat{
+    border: solid #cbbfbf;
+    border-radius: 20px;
+    margin: 0.5em;
     padding: 1em;
 }
