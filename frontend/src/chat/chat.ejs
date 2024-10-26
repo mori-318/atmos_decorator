@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>chat</title>
+    <title>チャット</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
@@ -13,134 +13,50 @@
 </head>
 
 <body>
-    <!-- ホームに戻る  新しい会話 -->
-
+    <!-- ヘッダー部分 -->
     <header class="header">
-        <div class="container-fluid"> <!-- 画面全体に広がるように container-fluid を使用 -->
-            <div class="d-flex justify-content-between"> <!-- justify-content-between で左右に配置 -->
-                <!-- <button class="p-2">ホームに戻る</button> -->
-                <a href="#home" class="headerChar">
-                    <p id="homeIcon">Atmos Decorator</p>
+        <div class="container-fluid"> <!-- フル幅のコンテナ -->
+            <div class="d-flex justify-content-between"> <!-- 左右に配置 -->
+                <a href="#home" class="headerTitle"> <!-- ヘッダーのタイトル -->
+                    <p id="homeTitle">Atmos Decorator</p> <!-- ホームアイコン -->
                 </a>
-                <div class="buttonNewchat">
+                <div class="align-items-center">
                     <a href="#">
-                      <img src="../../assets/new_chat_icon.png" alt="newchat">
+                        <img src="/assets/new_chat_icon.png" alt="新しいチャット" id="newChatButton"> <!-- 新しいチャットボタン -->
                     </a>
                 </div>
-                <!-- <button class="p-2">新しい会話</button> -->
             </div>
         </div>
     </header>
 
-    <!-- バックエンドから受け取ったものを表示 -->
-    <main>
-        <div id="border-chat">
-            <div class="container" id="chatDisplay">
-                <div class="row">
-                    <div class="col-12 col-md-6 col-sm-12  backendChat">
-                        <p class="chatText">バックエンドテキスト</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-md-6 col-sm-12 ml-auto userChat">
-                        ユーザーテキスト
-                    </div>
-                </div>
-            </div>
-            <div id="output"></div>
-        </div>
-    </main>
-
-    <!-- チャット打ち込み -->
-    <!-- 画像読み込み -->
-    <footer class="footer">
-        <div class="container-fluid">
-            <div class="fixed-bottom">
-                <div class="row justify-content-md-center">
-                    <form action="#" class="col-12">
-                        <div id="inputText" class="form-group mb-3 col-lg-6 col-md-8 col-sm-12 col-12 ">
-                            <div class="input-group">
-                                <div class="input-group-prepend  col-lg-1 col-md-1 col-sm-2 col-2">
-                                    <span class="input-group-text">
-                                        <div id="fileTrigger">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                fill="currentColor" class="bi bi-file-image" viewBox="0 0 16 16"
-                                                preserveAspectRatio="xMidYMid meet">
-                                                <path d="M8.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
-                                                <path
-                                                    d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v8l-2.083-2.083a.5.5 0 0 0-.76.063L8 11 5.835 9.7a.5.5 0 0 0-.611.076L3 12z" />
-                                            </svg>
-                                        </div>
-                                        <input type="file" id="fileInput" style="display: none;" accept="image/*" />
-                                    </span>
-                                </div>
-                                <form action="#" id="form">
-                                    <input type="text" class="form-control col-lg-10 col-md-10 col-sm-8 col-8"
-                                        id="new-talk" placeholder="新しい画像を入力してください"
-                                        aria-label="Amount (to the nearest dollar)">
-                                </form>
-                                <div class="input-group-append col-lg-1 col-md-1 col-sm-2 col-2">
-                                    <span class="input-group-text" id="textUploadBtn">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16"
-                                            preserveAspectRatio="xMidYMid meet">
-                                            <path
-                                                d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
-                                        </svg>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+    <!-- チャット表示エリア -->
+    <div id="chatContainer" class="container">
+        <div class="row">
+            <div class="col-6 chatBox">
+                <p class="chatMessage">バックエンドテキスト</p> <!-- バックエンドからのメッセージ -->
             </div>
         </div>
-    </footer>
-
-    <!-- <footer class="footer">
-        <div class="container-fluid">
-            <div class="fixed-bottom">
-                <div class="row justify-content-md-center">
-                    <form action="#" class="col-12">
-                        <div id="inputText" class="form-group mb-3 col-lg-6 col-md-8 col-sm-12 col-12 ">
-                            <div class="input-group">
-                                <div class="input-group-prepend  col-lg-1 col-md-1 col-sm-2 col-2">
-                                    <span class="input-group-text">
-                                        <div id="fileTrigger">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                fill="currentColor" class="bi bi-file-image" viewBox="0 0 16 16"
-                                                preserveAspectRatio="xMidYMid meet">
-                                                <path d="M8.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
-                                                <path
-                                                    d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v8l-2.083-2.083a.5.5 0 0 0-.76.063L8 11 5.835 9.7a.5.5 0 0 0-.611.076L3 12z" />
-                                            </svg>
-                                        </div>
-                                        <input type="file" id="fileInput" style="display: none;" accept="image/*" />
-                                    </span>
-                                </div>
-                                <form action="#" id="form">
-                                    <input type="text" class="form-control col-lg-10 col-md-10 col-sm-8 col-8"
-                                        id="new-talk" placeholder="新しい画像を入力してください"
-                                        aria-label="Amount (to the nearest dollar)">
-                                </form>
-                                <div class="input-group-append col-lg-1 col-md-1 col-sm-2 col-2">
-                                    <span class="input-group-text" id="textUploadBtn">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16"
-                                                preserveAspectRatio="xMidYMid meet">
-                                                <path
-                                                    d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
-                                            </svg>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+        <div class="row">
+            <div class="col-6 ml-auto chatBox">
+                <p class="chatMessage">フロントエンドテキスト</p> <!-- フロントエンドからのメッセージ -->
             </div>
         </div>
-    </footer> -->
+    </div>
 
+    <!-- チャット入力エリア -->
+    <div class="container row fixed-bottom form-group mb-3 input-group" id="inputContainer">
+        <label>
+            <img src="/assets/img_upload_icon.png" alt="画像アップロード" id="imgUploadButton"> <!-- 画像アップロードアイコン -->
+            <input type="file" style="display: none;">
+        </label>
+        <input type="text" class="form-control" id="userInput" placeholder="新しい画像を入力してください" aria-label="ユーザー入力">
+        <label>
+            <img src="/assets/text_upload_icon.png" alt="テキストアップロード" id="textUploadButton"> <!-- テキストアップロードアイコン -->
+            <button id="sendTextButton" style="display: none;"></button> <!-- テキスト送信ボタン -->
+        </label>
+    </div>
+
+    <!-- スクリプト -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
@@ -152,7 +68,5 @@
         crossorigin="anonymous"></script>
     <script src="chat.js"></script>
 </body>
-
-
 
 </html>
