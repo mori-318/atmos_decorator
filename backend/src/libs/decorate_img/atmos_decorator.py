@@ -101,18 +101,19 @@ class AtmosDecorator:
 
     def run_atmos_change(self):
         processed_img = self.img.copy()
+        print(f"適用処理：{self.applied_filters}")
         # フィルター処理の要求を全て適用した画像を作成
         for applied_filters in self.applied_filters:
-            if applied_filters == "eye_mosaic":
+            if applied_filters == "目元にモザイク":
                 processed_img = self.eye_mosaic(processed_img)
 
-            elif applied_filters == "face_mosaic":
+            elif applied_filters == "顔全体にモザイク":
                 processed_img = self.face_mosaic(processed_img)
 
-            elif applied_filters == "horror_filter":
+            elif applied_filters == "ちょっとホラー風":
                 processed_img = self.horror_filter(processed_img)
 
-            elif applied_filters == "vivid_filter":
+            elif applied_filters == "画像を鮮やかに":
                 processed_img = self.vivid_filter(processed_img)
 
         return processed_img

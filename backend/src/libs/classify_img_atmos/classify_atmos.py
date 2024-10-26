@@ -116,30 +116,3 @@ class ClassifyAtmos:
             classify_result = label_by_model
 
         return classify_result, is_face
-
-
-if __name__ == "__main__":
-    normal_model_weight_path = r"backend\src\assets\model_weight\normal_model_weight_ver2"
-    smile_model_weight_path = r"backend\src\assets\model_weight\smile_model_weight_ver2"
-
-    classify_atmos = ClassifyAtmos(
-        normal_model_weight_path=normal_model_weight_path,
-        smile_model_weight_path=smile_model_weight_path
-        )
-
-    print("==== negative ===")
-    folder_path = "negative_test"
-    negative_img_names = os.listdir(folder_path)
-    for name in negative_img_names:
-        img = os.path.join(folder_path, name)
-        classify_result, is_face = classify_atmos.run_classify(img)
-    print("finish\n")
-
-    print("==== positive ===")
-    folder_path = "positive_test"
-    positive_img_names = os.listdir(folder_path)
-    for name in positive_img_names:
-        img = os.path.join(folder_path, name)
-        classify_result, is_face = classify_atmos.run_classify(img)
-        print(f"{name}    分類結果：{classify_result}")
-    print("finish\n")

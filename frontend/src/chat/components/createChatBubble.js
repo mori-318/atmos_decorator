@@ -1,3 +1,5 @@
+import { scrollBottom } from "./scrollBottom.js";
+
 export const createChatBubble = (role, contents) => {
     const chatContainer = document.querySelector("#chatContainer");
     const chatBubble = document.createElement("div");
@@ -29,4 +31,5 @@ export const createChatBubble = (role, contents) => {
         chatBubble.appendChild(textElement);
         chatContainer.appendChild(chatBubble);
     }
+    scrollBottom(); // 一番下までスクロール
 };

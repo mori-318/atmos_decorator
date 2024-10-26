@@ -1,3 +1,4 @@
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI, File, UploadFile, Query
 from pydantic import BaseModel
 from typing import List
@@ -9,6 +10,18 @@ from libs.utils.utils import Utils
 app = FastAPI()
 utils = Utils()
 
+origins = [
+    "http://localhost:3000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 @app.post("/classify_atmos")
 async def classify_atmos(img_file: UploadFile = File(...)):
@@ -18,7 +31,14 @@ async def classify_atmos(img_file: UploadFile = File(...)):
         r"assets\model_weight\smile_model_weight_ver2"
     )
     result, is_face = classify_atmos.run_classify(img)
-    return {"atmos": result, "isFace": is_face}
+    if is_face:
+        if result == "positive": decorate_menu = ["目元にモザイク", "顔全体にモザイク", "ちょっとホラー風"]
+        else: decorate_menu = ["目元にモザイク", "顔全体にモザイク", "画像を鮮やかに"]
+    else:
+        if result == "positive": decorate_menu = ["ちょっとホラー風"]
+        else: decorate_menu = ["画像を鮮やかに"]
+
+    return {"atmos": result, "decorateMenu": decorate_menu}
 
 
 @app.post("/apply_filters")
