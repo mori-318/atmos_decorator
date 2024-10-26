@@ -1,5 +1,3 @@
-// クリックイベントを適切に設定
-
 var textUploadBtn = document.getElementById('textUploadBtn');
 
 // クリックイベントがバインドされているかどうか確認
