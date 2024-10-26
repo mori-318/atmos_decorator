@@ -1,23 +1,20 @@
-var textUploadBtn = document.getElementById('textUploadButton');
-
-// クリックイベントがバインドされているかどうか確認
-
-if (textUploadBtn) {
-    textUploadBtn.addEventListener('click', function() {
-        console.log('ok');
-        const chatDisplay = document.getElementById('border-chat');
-        const div = document.createElement('div');
-        const p = document.createElement('p');
-        p.textContent = "新しい文字っすンご";
-        div.appendChild(p);
-        div.classList.add("userChat", "col-12", "col-md-6", "col-sm-12", "ml-auto");
-        chatDisplay.appendChild(div);
-    }, false);
-} else {
-    console.error('textUploadBtn が見つかりません');
-}
+import { createChatBubble } from './components/createChatBubble.js';
 
 
+const imgUploadButton = document.querySelector("#imgUploadButton");
+const fileInput = imgUploadButton.nextElementSibling; // 隠されたファイル入力
 
-
-//console.log('a')
+// ファイルアップロードボタンが押されたときの処理
+fileInput.addEventListener("change", function () {
+    const file = fileInput.files[0];
+    if (file && file.type.startsWith("image/")) {
+        createChatBubble("host", file);
+    } else {
+        const message = {
+            type: "text",
+            content: "画像をアップロードしてください"
+        }
+        createChatBubble("host", message);
+    }
+    fileInput.value = "" // fileInputを殻にする
+});

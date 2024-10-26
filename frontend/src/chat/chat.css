@@ -78,7 +78,7 @@ body {
     font-size: 16px; /* フォントサイズ */
 }
 
-.chatBox {
+.chatBubble {
     border: solid #000 6px; /* 黒い境界線 */
     border-radius: 20px; /* 角を丸くする */
     margin: 0.5em; /* 上下のマージン */
@@ -118,4 +118,10 @@ body {
 #textUploadButton {
     width: 50px; /* 幅 */
     height: 50px; /* 高さ */
+}
+
+.uploadedImage {
+    max-width: 100%;
+    max-height: 400px;
+    object-fit: contain; /* 比率を保ちながら表示 */
 }
