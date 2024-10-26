@@ -1,39 +1,44 @@
 #inputText {
-    margin: 1em auto;
+    margin: 0em auto;
     padding: 1em;
     width: 100%;
 }
 
+.input-group {
+    border-radius: 30px;
+    border: solid 5px #000;
+    background-color: #fff0e0;
+    box-shadow: 10px 10px 0px 0 #000
+}
+
 header {
-    /* background-color: #dd1212; */
     padding: 1em;
-    /* 内側の余白を追加 */
     width: 100%;
-    /* 幅を100%に設定して画面全体に広げる */
     margin: 0;
-    /* マージンをリセット（余白をなくす） */
     box-sizing: border-box;
-    /* パディングを含む幅と高さを正しく計算する */
-    background-color: #fff;
+    background-color: #fd8b51;
+    border-bottom: solid 5px #000;
 }
 
 
 #border-chat {
     border-radius: 30px;
-    background-color: #fff;
+    border: solid 5px #000;
+    background-color: #fff0e0;
     margin: 1em auto;
     padding: 1em;
     width: 100%;
     /* containerと同じ幅に設定 */
     max-width: 960px;
     /* Bootstrapのcontainerと同じ最大幅に設定 */
-    height: 540px;
+    height: 500px;
     max-height: 1000px;
+    box-shadow: 10px 10px 0px 0 #000;
 }
 
 
 body {
-    background-color: #fb0606;
+    background-color: #64a8a2;
     font-size: 16px;
 }
 
@@ -54,16 +59,56 @@ body {
     margin: 0;
     box-sizing: border-box;
 }
-.backendChat{
-    border: solid #cbbfbf;
+
+.backendChat {
+    border: solid #000 6px;
+    border-radius: 20px;
+    margin: 0.5em;
+    padding: 1em;
+    background-color: rgb(0, 0, 0);
+}
+
+.chatText {
+    color: rgb(255, 255, 255);
+}
+
+.userChat {
+    border: solid #000;
     border-radius: 20px;
     margin: 0.5em;
     padding: 1em;
 }
 
-.userChat{
-    border: solid #cbbfbf;
-    border-radius: 20px;
+.input-group-text {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+#fileTrigger {
+    padding: 0;
+    margin: 0.1em;
+}
+
+/* 上 | 右 | 下 | 左 */
+.click {
+    padding: 0;
+    margin: 0.1em;
+}
+
+.talk {
+    background-color: #fd8b51;
+    padding: 0;
+    margin: 0;
+}
+
+#new-talk {
+    padding: 0.25em 0.5em 0.25em 0.5em;
     margin: 0.5em;
-    padding: 1em;
+    border-radius: 30px;
+    border: solid 5px #000;
+    width: auto;
+    height: auto;
+    background-color: #fd8b51;
 }
