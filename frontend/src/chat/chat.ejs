@@ -4,41 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>チャット</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="chat.css">
 </head>
 
 <body>
-    <!-- ホームに戻る  新しい会話 -->
-
+    <!-- ヘッダー部分 -->
     <header class="header">
-        <div class="container-fluid"> <!-- 画面全体に広がるように container-fluid を使用 -->
-            <div class="d-flex justify-content-between"> <!-- justify-content-between で左右に配置 -->
-                <!-- <button class="p-2">ホームに戻る</button> -->
-                <a href="#home">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                        class="bi bi-house" viewBox="0 0 16 16">
-                        <path
-                            d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z" />
-                    </svg>
+        <div class="container-fluid"> <!-- フル幅のコンテナ -->
+            <div class="d-flex justify-content-between"> <!-- 左右に配置 -->
+                <a href="#home" class="headerTitle"> <!-- ヘッダーのタイトル -->
+                    <p id="homeTitle">Atmos Decorator</p> <!-- ホームアイコン -->
                 </a>
-                <div class="buttonNewchat">
+                <div class="align-items-center">
                     <a href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                            class="bi bi-plus-circle" viewBox="0 0 16 16">
-                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                            <path
-                                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
-                        </svg>
+                        <img src="/assets/new_chat_icon.png" alt="新しいチャット" id="newChatButton"> <!-- 新しいチャットボタン -->
                     </a>
                 </div>
-                <!-- <button class="p-2">新しい会話</button> -->
             </div>
         </div>
     </header>
 
+<<<<<<< HEAD
     <!-- バックエンドから受け取ったものを表示 -->
         <div id="border-chat" class="overflow-auto">
             <div class="container">
@@ -108,6 +99,36 @@
         </div>
     </footer>
 
+=======
+    <!-- チャット表示エリア -->
+    <div id="chatContainer" class="container">
+        <div class="row">
+            <div class="col-6 chatBox">
+                <p class="chatMessage">バックエンドテキスト</p> <!-- バックエンドからのメッセージ -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 ml-auto chatBox">
+                <p class="chatMessage">フロントエンドテキスト</p> <!-- フロントエンドからのメッセージ -->
+            </div>
+        </div>
+    </div>
+
+    <!-- チャット入力エリア -->
+    <div class="container row fixed-bottom form-group mb-3 input-group" id="inputContainer">
+        <label>
+            <img src="/assets/img_upload_icon.png" alt="画像アップロード" id="imgUploadButton"> <!-- 画像アップロードアイコン -->
+            <input type="file" style="display: none;">
+        </label>
+        <input type="text" class="form-control" id="userInput" placeholder="新しい画像を入力してください" aria-label="ユーザー入力">
+        <label>
+            <img src="/assets/text_upload_icon.png" alt="テキストアップロード" id="textUploadButton"> <!-- テキストアップロードアイコン -->
+            <button id="sendTextButton" style="display: none;"></button> <!-- テキスト送信ボタン -->
+        </label>
+    </div>
+
+    <!-- スクリプト -->
+>>>>>>> origin/maatsoka
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
@@ -119,7 +140,5 @@
         crossorigin="anonymous"></script>
     <script src="chat.js"></script>
 </body>
-
-
 
 </html>

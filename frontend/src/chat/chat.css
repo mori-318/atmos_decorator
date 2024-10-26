@@ -1,122 +1,121 @@
-#inputText {
-    margin: 0em auto;
-    padding: 1em;
-    width: 100%;
-}
-
 .input-group {
-    border-radius: 30px;
-    border: solid 5px #000;
-    background-color: #fff0e0;
-    box-shadow: 10px 10px 0px 0 #000
+    border-radius: 30px; /* 角を丸くする */
+    border: solid 5px #000; /* 黒い境界線 */
+    background-color: #fff0e0; /* 背景色 */
+    box-shadow: 10px 10px 0px 0 #000; /* 影の設定 */
 }
 
 header {
-    padding: 1em;
-    width: 100%;
-    margin: 0;
-    box-sizing: border-box;
-    background-color: #fd8b51;
-    border-bottom: solid 5px #000;
+    padding: 8px 0px; /* 上下の余白 */
+    width: 100%; /* 幅を100%に設定 */
+    margin: 0; /* マージンなし */
+    box-sizing: border-box; /* ボックスモデルを含む */
+    background-color: #fd8b51; /* ヘッダーの背景色 */
+    border-bottom: solid 5px #000; /* 下の境界線 */
+}
+
+.headerTitle {
+    margin: 2px 0px; /* タイトルの余白 */
+    border-bottom: 0px; /* 下のボーダーなし */
+    color: #fff0e0; /* テキストの色 */
+    font-family: 'Luckiest Guy', sans-serif; /* フォントの設定 */
+    font-size: 40px; /* フォントサイズ */
+    text-decoration: none; /* 下線なし */
 }
 
 
-#border-chat {
-    border-radius: 30px;
-    border: solid 5px #000;
-    background-color: #fff0e0;
-    margin: 1em auto;
-    padding: 1em;
-    width: 100%;
-    /* containerと同じ幅に設定 */
-    max-width: 960px;
-    /* Bootstrapのcontainerと同じ最大幅に設定 */
-    height: 500px;
-    max-height: 1000px;
-    box-shadow: 10px 10px 0px 0 #000;
+.col-12 {
+    padding: 0%; /* パディングなし */
 }
 
-#border-chat::-webkit-scrollbar {
-    width: 0.5px;
-    height: 50px;
-    position: center;
+#newChatButton {
+    width: 50px; /* 幅 */
+    height: 50px; /* 高さ */
 }
 
-#border-chat::-webkit-scrollbar-track {
-    background: #000000;
-    border-radius: 10px;
+.align-items-center {
+    display: flex; /* フレックスボックス */
+    justify-content: center; /* 中央揃え */
+    align-items: center; /* 縦中央揃え */
 }
 
-#border-chat::-webkit-scrollbar-thumb {
-    background: #fd8b51;
-    border-radius: 10px;
+#homeTitle {
+    margin: 0%; /* マージンなし */
+}
+
+.container-fluid {
+    padding: 0px 10px; /* 左右のパディング */
+}
+
+#chatContainer {
+    border-radius: 30px; /* 角を丸くする */
+    border: solid 5px #000; /* 黒い境界線 */
+    background-color: #fff0e0; /* 背景色 */
+    margin: 1em auto; /* 上下のマージン */
+    padding: 1em; /* 内側の余白 */
+    width: 100%; /* 幅を100%に設定 */
+    max-width: 960px; /* 最大幅 */
+    height: 480px; /* 高さ */
+    max-height: 1000px; /* 最大高さ */
+    box-shadow: 10px 10px 0px 0 #000; /* 影の設定 */
+}
+
+#inputContainer {
+    border-radius: 30px; /* 角を丸くする */
+    border: solid 5px #000; /* 黒い境界線 */
+    background-color: #fff0e0; /* 背景色 */
+    margin: 1em auto; /* 上下のマージン */
+    padding: 1em; /* 内側の余白 */
+    width: 100%; /* 幅を100%に設定 */
+    max-width: 960px; /* 最大幅 */
+    height: 70px; /* 高さ */
+    max-height: 70px; /* 最大高さ */
+    box-shadow: 10px 10px 0px 0 #000; /* 影の設定 */
 }
 
 body {
-    background-color: #64a8a2;
-    font-size: 16px;
+    background-color: #64a8a2; /* 背景色 */
+    font-size: 16px; /* フォントサイズ */
 }
 
-
-.row {
-    margin-right: 0;
-    /* 右側の余白をリセット */
+.chatBox {
+    border: solid #000 6px; /* 黒い境界線 */
+    border-radius: 20px; /* 角を丸くする */
+    margin: 0.5em; /* 上下のマージン */
+    padding: 1em; /* 内側の余白 */
+    background-color: rgb(0, 0, 0); /* 背景色 */
 }
 
-#chatText {
-    margin: 1em;
-    padding: 1em;
-}
-
-.footer .container-fluid {
-    padding: 1em;
-    width: 100%;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-.chatDesign {
-    border: solid #000 6px;
-    border-radius: 20px;
-    margin: 0.5em;
-    padding: 1em;
-    background-color: rgb(0, 0, 0);
-}
-
-.chatText {
-    color: rgb(255, 255, 255);
-}
-
-.input-group-text {
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    margin: 0;
-}
-
-#fileTrigger {
-    padding: 0;
-    margin: 0.1em;
+.chatMessage {
+    color: rgb(255, 255, 255); /* テキストの色 */
 }
 
 /* 上 | 右 | 下 | 左 */
-.click {
-    padding: 0;
-    margin: 0.1em;
+#textUploadButton {
+    padding: 0; /* パディングなし */
+    margin: 0.1em; /* マージン */
 }
 
 .talk {
-    background-color: #fd8b51;
-    padding: 0;
-    margin: 0;
+    background-color: #fd8b51; /* 背景色 */
+    padding: 0; /* パディングなし */
+    margin: 0; /* マージンなし */
 }
 
-#new-talk {
-    padding: 0.25em 0.5em 0.25em 0.5em;
-    margin: 0.5em;
-    border-radius: 30px;
-    border: solid 5px #000;
-    width: auto;
-    height: auto;
-    background-color: #fd8b51;
+#userInput {
+    border-radius: 30px; /* 角を丸くする */
+    border: solid 5px #000; /* 黒い境界線 */
+    width: auto; /* 幅自動 */
+    height: 50px; /* 高さ */
+    background-color: #fd8b51; /* 背景色 */
+}
+
+#imgUploadButton {
+    width: 50px; /* 幅 */
+    height: 30px; /* 高さ */
+}
+
+#textUploadButton {
+    width: 50px; /* 幅 */
+    height: 50px; /* 高さ */
 }
