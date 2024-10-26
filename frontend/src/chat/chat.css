@@ -36,6 +36,21 @@ header {
     box-shadow: 10px 10px 0px 0 #000;
 }
 
+#border-chat::-webkit-scrollbar {
+    width: 0.5px;
+    height: 50px;
+    position: center;
+}
+
+#border-chat::-webkit-scrollbar-track {
+    background: #000000;
+    border-radius: 10px;
+}
+
+#border-chat::-webkit-scrollbar-thumb {
+    background: #fd8b51;
+    border-radius: 10px;
+}
 
 body {
     background-color: #64a8a2;
@@ -60,7 +75,7 @@ body {
     box-sizing: border-box;
 }
 
-.backendChat {
+.chatDesign {
     border: solid #000 6px;
     border-radius: 20px;
     margin: 0.5em;
@@ -70,13 +85,6 @@ body {
 
 .chatText {
     color: rgb(255, 255, 255);
-}
-
-.userChat {
-    border: solid #000;
-    border-radius: 20px;
-    margin: 0.5em;
-    padding: 1em;
 }
 
 .input-group-text {
