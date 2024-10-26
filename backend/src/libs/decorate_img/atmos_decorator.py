@@ -23,7 +23,7 @@ class AtmosDecorator:
 
     def face_mosaic(self, img, scale=0.05):
         faces = self.get_face_position()
-
+        print(faces)
         # 写真に写っている全顔に対してモザイク処理を行う
         for face in faces.values():
             x1, y1, x2, y2 = face["facial_area"]
@@ -116,7 +116,7 @@ class AtmosDecorator:
 
 if __name__ == "__main__":
     img = cv2.imread(r"test_imgs\3.jpg")
-    applied_filters = ["vivid_filter"]
+    applied_filters = ["顔全体にモザイク"]
     atmos_decorator = AtmosDecorator(img, applied_filters)
 
     processed_img = atmos_decorator.run_atmos_change()
