@@ -89,6 +89,15 @@ class AtmosDecorator:
         return processed_img
 
 
+    def vivid_filter(self, img):
+        hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV_FULL)
+        hsvf = hsv_img.astype(np.float32)
+        hsvf[:,:,1] = np.clip(hsvf[:,:,1] * 2.0 - 20, 0, 255)
+        hsv8 = hsvf.astype(np.uint8)
+        processed_img = cv2.cvtColor(hsv8, cv2.COLOR_HSV2BGR_FULL)
+        return processed_img
+
+
 
     def run_atmos_change(self):
         processed_img = self.img.copy()
@@ -103,11 +112,14 @@ class AtmosDecorator:
             elif applied_filters == "horror_filter":
                 processed_img = self.horror_filter(processed_img)
 
+            elif applied_filters == "vivid_filter":
+                processed_img = self.vivid_filter(processed_img)
+
         return processed_img
 
 if __name__ == "__main__":
     img = cv2.imread(r"test_imgs\3.jpg")
-    applied_filters = ["horror_filter"]
+    applied_filters = ["vivid_filter"]
     atmos_decorator = AtmosDecorator(img, applied_filters)
 
     processed_img = atmos_decorator.run_atmos_change()

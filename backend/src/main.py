@@ -14,8 +14,8 @@ utils = Utils()
 async def classify_atmos(img_file: UploadFile = File(...)):
     img = await utils.file_to_img(img_file)
     classify_atmos = ClassifyAtmos(
-        r"assets\model_weight\normal_model_weight",
-        r"assets\model_weight\smile_model_weight"
+        r"assets\model_weight\normal_model_weight_ver2",
+        r"assets\model_weight\smile_model_weight_ver2"
     )
     result, is_face = classify_atmos.run_classify(img)
     return {"atmos": result, "isFace": is_face}
