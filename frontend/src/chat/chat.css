@@ -58,6 +58,12 @@ header {
     height: 480px; /* 高さ */
     max-height: 1000px; /* 最大高さ */
     box-shadow: 10px 10px 0px 0 #000; /* 影の設定 */
+    overflow: auto;
+    scrollbar-width: none; /* Firefox用スクロールバー透明化 */
+}
+
+#charContainer::-webkit-scrollbar {
+    display: none; /* WebKit用 */
 }
 
 #inputContainer {

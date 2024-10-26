@@ -5,17 +5,20 @@ export const createChatBubble = (role, contents) => {
 
     // contents が画像の場合
     if (contents instanceof File && contents.type.startsWith("image/")) {
-        const reader = new FileReader();
-        reader.onload = function (event) {
-            const imageElement = document.createElement("img");
-            imageElement.src = event.target.result;
-            imageElement.alt = "アップロードされた画像";
-            imageElement.className = "uploadedImage";
+        return new Promise((resolve) => { // Promiseを返す
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                const imageElement = document.createElement("img");
+                imageElement.src = event.target.result;
+                imageElement.alt = "アップロードされた画像";
+                imageElement.className = "uploadedImage";
 
-            chatBubble.appendChild(imageElement);
-            chatContainer.appendChild(chatBubble);
-        };
-        reader.readAsDataURL(contents); // ファイルを読み込む
+                chatBubble.appendChild(imageElement);
+                chatContainer.appendChild(chatBubble);
+                resolve(); // 画像が読み込まれたらPromiseを解決
+            };
+            reader.readAsDataURL(contents); // ファイルを読み込む
+        });
     }
     // contents がテキストメッセージの場合
     else if (contents.type === "text") {
@@ -25,5 +28,5 @@ export const createChatBubble = (role, contents) => {
         if (role === "user") chatBubble.classList.add("ml-auto");
         chatBubble.appendChild(textElement);
         chatContainer.appendChild(chatBubble);
-    };
+    }
 };
