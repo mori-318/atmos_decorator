@@ -1,7 +1,3 @@
-// クリックイベントを適切に設定
-var newtalk=document.getElementById('newtalk');
-
-
 var textUploadBtn = document.getElementById('textUploadBtn');
 
 if (textUploadBtn) {
