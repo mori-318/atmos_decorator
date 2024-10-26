@@ -3,12 +3,15 @@ import { classifyAtmos } from "./components/classifyAtmos.js";
 import { imageDecorate } from "./components/imageDcorate.js";
 
 window.onload = function () {
+    const newChatButton = document.querySelector("#newChatButton")
     const imgUploadButton = document.querySelector("#imgUploadButton");
     const textUploadButton = document.querySelector("#textUploadButton");
     const textBox = document.querySelector("#userInput");
 
     const fileInput = imgUploadButton.nextElementSibling; // 隠されたファイル入力
-    const textInput = textUploadButton.nextElementSibling; // 隠されたテキスト入力
+    const textInput = textUploadButton.nextElementSibling;
+    const newChat = newChatButton.nextElementSibling;
+
     let file = null; // 画像ファイルを格納する変数
     let isClassifyFinished = false; //画像の雰囲気分類が終わったを格納する変数
 
@@ -95,4 +98,9 @@ window.onload = function () {
         }
         textBox.value = "";
     });
+
+    // newChatButtonが押されたときの処理
+    newChat.addEventListener('click', function () {
+        window.location.reload(); // ページをリロード
+    })
 };
