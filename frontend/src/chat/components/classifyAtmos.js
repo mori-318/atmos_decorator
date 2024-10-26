@@ -15,10 +15,10 @@ export const classifyAtmos = async (file) => {
 
         // atmosを評価し、結果を設定
         const classifyResult = response.data.atmos === "positive" ? "明るい写真" : "暗い写真";
-        const decorateMenu = response.data.decorateMenu;
+        const decorateMenus = response.data.decorateMenu;
 
         // 成功時にオブジェクトを返す
-        return { classifyResult, decorateMenu };
+        return { classifyResult, decorateMenus };
     } catch (error) {
         console.error("Error:", error); // エラーをコンソールに表示
         return "error"; // エラー時に"error"を返す

@@ -1,5 +1,5 @@
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi import FastAPI, File, UploadFile, Query
+from fastapi import FastAPI, File, UploadFile, Query, Form
 from pydantic import BaseModel
 from typing import List
 
@@ -42,9 +42,15 @@ async def classify_atmos(img_file: UploadFile = File(...)):
 
 
 @app.post("/apply_filters")
-async def apply_filters(applied_filters: List[str] = Query(...), img_file: UploadFile = File(...)):
+async def apply_filters(
+    img_file: UploadFile = File(...),
+    applied_filters: str = Form(...)  # FormDataとして受け取る
+):
+    # 文字列をリストに変換
+    filters_list = applied_filters.split(',') if applied_filters else []
+
     img = await utils.file_to_img(img_file)
-    atmos_changer = AtmosDecorator(img, applied_filters)
+    atmos_changer = AtmosDecorator(img, filters_list)
     processed_img = atmos_changer.run_atmos_change()
     processed_img_file = utils.img_to_file(processed_img)
     return {"status": "processed", "imgFile": processed_img_file}

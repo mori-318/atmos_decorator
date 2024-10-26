@@ -59,10 +59,6 @@ class AtmosDecorator:
         return img
 
     def create_horror_noise(self, img):
-        # 顔がある場合はモザイク処理をかける
-        faces = self.get_face_position()
-        if faces:
-            img = self.eye_mosaic(img)
         processed_img = img.copy()
         img_height, img_width, _ = img.shape
 
@@ -124,7 +120,3 @@ if __name__ == "__main__":
     atmos_decorator = AtmosDecorator(img, applied_filters)
 
     processed_img = atmos_decorator.run_atmos_change()
-
-    cv2.imshow('img', processed_img)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()

@@ -1,8 +1,14 @@
-export const imageDecorate = async (file) => {
+export const imageDecorate = async (file, selectedDecorateMenus) => {
     try {
+        // selectedDecorateMenusから余分な空白を取り除く
+        selectedDecorateMenus = selectedDecorateMenus.replace(/\s+/g, "");
+
         // FormDataオブジェクトを作成
         const formData = new FormData();
         formData.append("img_file", file);
+        formData.append("applied_filters", selectedDecorateMenus);
+
+        console.log(formData);
 
         // フォームデータを使用してPOSTリクエストを送信
         const response = await axios.post("http://localhost:8000/apply_filters", formData, {
@@ -13,12 +19,8 @@ export const imageDecorate = async (file) => {
 
         console.log(response.data);
 
-        // atmosを評価し、結果を設定
-        const classifyResult = response.data.atmos === "positive" ? "明るい写真" : "暗い写真";
-        const decorateMenu = response.data.decorateMenu;
-
         // 成功時にオブジェクトを返す
-        return { classifyResult, decorateMenu };
+        return response.data.imgFile;
     } catch (error) {
         console.error("Error:", error); // エラーをコンソールに表示
         return "error"; // エラー時に"error"を返す

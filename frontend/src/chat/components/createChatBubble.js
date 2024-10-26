@@ -1,13 +1,18 @@
-import { scrollBottom } from "./scrollBottom.js";
+import { scrollBottom } from "./scrollBottom.js"
 
 export const createChatBubble = (role, contents) => {
     const chatContainer = document.querySelector("#chatContainer");
     const chatBubble = document.createElement("div");
     chatBubble.className = "col-6 chatBubble";
 
-    // contents が画像の場合
+    // デバッグ用ログ
+    console.log('Role:', role);
+    console.log('Contents:', contents);
+
+
+    // File オブジェクトの場合（画像ファイルの場合）
     if (contents instanceof File && contents.type.startsWith("image/")) {
-        return new Promise((resolve) => { // Promiseを返す
+        return new Promise((resolve) => {
             const reader = new FileReader();
             reader.onload = function (event) {
                 const imageElement = document.createElement("img");
@@ -17,19 +22,41 @@ export const createChatBubble = (role, contents) => {
 
                 chatBubble.appendChild(imageElement);
                 chatContainer.appendChild(chatBubble);
-                resolve(); // 画像が読み込まれたらPromiseを解決
+                if (role === "user") chatBubble.classList.add("ml-auto");
+                resolve();
             };
-            reader.readAsDataURL(contents); // ファイルを読み込む
+            reader.readAsDataURL(contents);
         });
     }
-    // contents がテキストメッセージの場合
+    // Base64形式の画像の場合
+    else if (typeof contents === "string" && contents.startsWith("data:image/")) {
+        const imageElement = new Image();
+        imageElement.src = contents;
+        imageElement.alt = "Base64で表示された画像";
+        imageElement.className = "uploadedImage";
+
+        if (role === "user") chatBubble.classList.add("ml-auto");
+        chatBubble.appendChild(imageElement);
+        chatContainer.appendChild(chatBubble);
+    }
+    // テキストメッセージの場合
     else if (contents.type === "text") {
         const textElement = document.createElement("p");
         textElement.className = "chatMessage";
-        textElement.textContent = contents.content; // メッセージ内容を設定
+        textElement.textContent = contents.content;
         if (role === "user") chatBubble.classList.add("ml-auto");
         chatBubble.appendChild(textElement);
         chatContainer.appendChild(chatBubble);
     }
-    scrollBottom(); // 一番下までスクロール
+    // その他のケース（エラー）
+    else {
+        const textElement = document.createElement("p");
+        textElement.className = "chatMessage error";
+        textElement.textContent = "メッセージの表示に問題が発生しました";
+        if (role === "user") chatBubble.classList.add("ml-auto");
+        chatBubble.appendChild(textElement);
+        chatContainer.appendChild(chatBubble);
+    }
+
+    scrollBottom();
 };
