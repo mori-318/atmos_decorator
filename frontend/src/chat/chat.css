@@ -92,7 +92,7 @@ body {
 }
 
 /* 上 | 右 | 下 | 左 */
-.click {
+#textUploadBtn {
     padding: 0;
     margin: 0.1em;
 }
@@ -112,3 +112,4 @@ body {
     height: auto;
     background-color: #fd8b51;
 }
+
