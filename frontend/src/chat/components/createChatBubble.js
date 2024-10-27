@@ -51,7 +51,7 @@ export const createChatBubble = (role, contents) => {
     // その他のケース（エラー）
     else {
         const textElement = document.createElement("p");
-        textElement.className = "chatMessage error";
+        textElement.className = "chatMessage";
         textElement.textContent = "メッセージの表示に問題が発生しました";
         if (role === "user") chatBubble.classList.add("ml-auto");
         chatBubble.appendChild(textElement);
