@@ -1,4 +1,4 @@
-import { createChatBubble } from "./components/createChatBubble.js";
+import { createChatBubble} from "./components/createChatBubble.js"
 import { classifyAtmos } from "./components/classifyAtmos.js";
 import { imageDecorate } from "./components/imageDcorate.js";
 import { downloadBase64Image } from "./components/dawnloadBase64Image.js";
@@ -45,9 +45,7 @@ window.onload = function () {
 
                 createChatBubble("host", {
                     type: "text",
-                    content: `雰囲気の加工法を "${decorateMenus.join(
-                        ", "
-                    )}" の中から選んで、入力してください※ もし、適用したい雰囲気加工法が複数ある場合は、コンマ区切りで入力してください`,
+                    content: `雰囲気の加工法を "${decorateMenus}" の中から選んで、入力してください※ もし、適用したい雰囲気加工法が複数ある場合は、コンマ区切りで入力してください`,
                 });
             } else {
                 createChatBubble("host", {

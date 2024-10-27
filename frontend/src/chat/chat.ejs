@@ -17,13 +17,13 @@
     <header class="header">
         <div class="container-fluid"> <!-- フル幅のコンテナ -->
             <div class="d-flex justify-content-between"> <!-- 左右に配置 -->
-                <a href="/" class="headerTitle"> <!-- ヘッダーのタイトル -->
+                <a href="http://localhost:3000" class="headerTitle"> <!-- ヘッダーのタイトル -->
                     <p id="homeTitle">Atmos Decorator</p> <!-- ホームアイコン -->
                 </a>
                 <div class="align-items-center">
                     <label>
                         <img src="/assets/new_chat_icon.png" alt="新しいチャット" id="newChatButton"> <!-- 新しいチャットボタン -->
-                        <button style="display: none"></button>
+                        <button style="display: none;"></button>
                     </label>
                 </div>
             </div>
@@ -32,24 +32,24 @@
 
     <!-- チャット表示エリア -->
     <div id="chatContainer" class="container">
-            <div class="col-6 chatBubble">
-                <p class="chatMessage">画像をアップロードしてください</p>
-            </div>
-            <!-- <div class="col-6 ml-auto chatBubble">
-                <p class="chatMessage">フロントエンドテキスト</p>
-            </div> -->
+        <div class="col-6 chatBubble">
+            <p class="chatMessage">バックエンドテキスト</p> <!-- バックエンドからのメッセージ -->
+        </div>
+        <div class="col-6 ml-auto chatBubble">
+            <p class="chatMessage">フロントエンドテキスト</p> <!-- フロントエンドからのメッセージ -->
+        </div>
     </div>
 
     <!-- チャット入力エリア -->
     <div class="container row fixed-bottom form-group mb-3 input-group" id="inputContainer">
-        <label>
+        <label class="d-flex align-items-center mb-0 mr-2">
             <img src="/assets/img_upload_icon.png" alt="画像アップロード" id="imgUploadButton"> <!-- 画像アップロードアイコン -->
             <input type="file" style="display: none;">
         </label>
-        <input type="text" class="form-control" id="userInput" placeholder="新しい画像を入力してください" aria-label="ユーザー入力">
-        <label>
+        <input type="text" class="form-control mx-2" id="userInput" placeholder="新しい画像を入力してください" aria-label="ユーザー入力">
+        <label class="d-flex align-items-center mb-0 mr-2">
             <img src="/assets/text_upload_icon.png" alt="テキストアップロード" id="textUploadButton"> <!-- テキストアップロードアイコン -->
-            <button style="display: none;"></button> <!-- テキスト送信ボタン -->
+            <button id="sendTextButton" style="display: none;"></button> <!-- テキスト送信ボタン -->
         </label>
     </div>
 
@@ -63,7 +63,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
-    <script type="module" src="chat.js"></script>
+    <script type="module" src="./chat.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
 
