@@ -1,11 +1,14 @@
 body {
     background-color: #64a8a2;
-    font-family: 'Roboto Mono', monospace; /* ボディのフォント設定 */
+    font-family: 'Roboto Mono', monospace;
+    /* ボディのフォント設定 */
 }
 
 .container {
-    padding-left: 10px;  /* 左の余白を削除 */
-    margin-left: 0;   /* 左のマージンも削除 */
+    padding-left: 10px;
+    /* 左の余白を削除 */
+    margin-left: 0;
+    /* 左のマージンも削除 */
 }
 
 .header {
@@ -17,19 +20,26 @@ body {
     margin-top: 2px;
     margin-bottom: 2px;
     color: #fff0e0;
-    font-family: 'Luckiest Guy', sans-serif; /* ヘッダーのフォントを指定 */
-    font-size: 40px; /* フォントサイズを指定 */
-    text-decoration: none; /* リンクの下線を消す */
+    font-family: 'Luckiest Guy', sans-serif;
+    /* ヘッダーのフォントを指定 */
+    font-size: 40px;
+    /* フォントサイズを指定 */
+    text-decoration: none;
+    /* リンクの下線を消す */
 }
 
 .cardStyle {
     border: 5px solid black;
-    border-radius: 1.5rem;
-    width: 50em;
-    height: 30em;
+    border-radius: 30px;
     background-color: #fff0e0;
+    margin: 1em auto;
+    padding: 1em;
+    width: 100%;
+    max-width: 960px;
+    height: 31em;
+    max-height: 1000px;
     color: #fd8b51;
-    box-shadow: 17px 17px 0px rgb(0, 0, 0);
+    box-shadow: 10px 10px 0px 0 #000;
 }
 
 .cardTitle {
@@ -42,8 +52,16 @@ body {
     font-size: 1.5em;
 }
 
+#container {
+    margin: 1em auto;
+    /* 上下のマージン */
+    padding: 1em;
+    /* 内側の余白 */
+}
+
 .full-height {
-    height: 100vh; /* ビューポートの高さを100%に設定 */
+    height: 100vh;
+    /* ビューポートの高さを100%に設定 */
 }
 
 .startBtn {
